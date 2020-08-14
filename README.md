@@ -1,7 +1,6 @@
 # Node.js Application Utils
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
-[![Greenkeeper badge](https://badges.greenkeeper.io/phgroe/node-apputils.svg)](https://greenkeeper.io/)
 
 A small set of helper functions to make creating backend applications in Node.js easier.
 
@@ -24,6 +23,6 @@ to have them in a common module.
 
 ## License
 
-Copyright © 2018 Philipp Gröschler
+Copyright © 2018-20 Philipp Gröschler
 &bull;
 Licensed under the [GNU General Public License (GPL) v3](LICENSE.txt)
