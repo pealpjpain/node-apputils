@@ -1,0 +1,53 @@
+name: Publish package
+
+on:
+  release:
+    types:
+      - created
+
+jobs:
+  publish-to-github:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          registry-url: 'https://npm.pkg.github.com'
+          node-version: '14.x'
+          scope: '@pealpjpain'
+
+      - run: npm install --no-package-lock --no-audit --no-fund
+
+      - name: Publish to Github Registry
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish-to-npm:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          registry-url: 'https://registry.npmjs.org/'
+          node-version: '14.x'
+          scope: '@pealpjpain'
+
+      - run: npm install --no-package-lock --no-audit --no-fund
+
+      - name: Publish to NPM
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
