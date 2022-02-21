@@ -29,10 +29,10 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
-      - name: Clean up package storage
-        uses: actions/delete-package-versions@v2
-        with:
-          min-versions-to-keep: 4
+      # - name: Clean up package storage
+      #   uses: actions/delete-package-versions@v2
+      #   with:
+      #     min-versions-to-keep: 4
 
   publish-to-npm:
     runs-on: ubuntu-latest
