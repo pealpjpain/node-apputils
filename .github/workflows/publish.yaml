@@ -22,7 +22,7 @@ jobs:
           node-version: '14.x'
           scope: '@pealpjpain'
 
-      - run: npm install --no-package-lock --no-audit --no-fund
+      - run: npm ci --no-audit --no-fund
 
       - name: Publish to Github Registry
         run: npm publish --access public
@@ -50,7 +50,7 @@ jobs:
           node-version: '14.x'
           scope: '@pealpjpain'
 
-      - run: npm install --no-package-lock --no-audit --no-fund
+      - run: npm ci --no-audit --no-fund
 
       - name: Publish to NPM
         run: npm publish --access public
