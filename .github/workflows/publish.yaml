@@ -14,12 +14,12 @@ jobs:
       packages: write
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           registry-url: 'https://npm.pkg.github.com'
-          node-version: '14.x'
+          node-version: '18.x'
           scope: '@pealpjpain'
 
       - run: npm ci --no-audit --no-fund
@@ -28,11 +28,6 @@ jobs:
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
-      # - name: Clean up package storage
-      #   uses: actions/delete-package-versions@v2
-      #   with:
-      #     min-versions-to-keep: 4
 
   publish-to-npm:
     runs-on: ubuntu-latest
@@ -42,12 +37,12 @@ jobs:
       packages: write
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           registry-url: 'https://registry.npmjs.org/'
-          node-version: '14.x'
+          node-version: '18.x'
           scope: '@pealpjpain'
 
       - run: npm ci --no-audit --no-fund
